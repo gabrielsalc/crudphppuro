@@ -5,7 +5,7 @@
     <div class="col-md-12">
       <h2 class="mt-4">Crea un ROL</h2>
       <hr>
-      <form action="procesos/insertar.php" method="post">
+      <form action="../procesos/insertarRoles.php" method="post">
         <div class="form-group">
           <label for="nombre">Nombre</label>
           <input type="text" name="nombre" id="nombre" class="form-control">

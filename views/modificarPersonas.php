@@ -16,7 +16,7 @@ require_once "../controllers/personasController.php";
     <div class="col-md-12">
       <h2 class="mt-4">Modificar <?php echo $values[0] ?></h2>
       <hr>
-      <form action="../procesos/modificarpersonas.php" method="post">
+      <form action="../procesos/modificarPersonas.php" method="post">
         <input type="text" hidden="" value="<?php echo $id ?>" name="id">
         <div class="form-group">
           <label for="nombre">Nombre</label>

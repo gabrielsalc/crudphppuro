@@ -25,7 +25,7 @@ include "../templates/header.php";
         <td><?php if(isset($key['roles'])){
             echo $key['roles'];
             }else{
-                echo "No tiene Rol";}?></td>
+                echo "No posee un Rol aun";}?></td>
         <td id="modificar"><a href="modificarPersonas.php?id=<?php echo $key['id'] ?>"  class="btn btn-primary mt-4">Modificar</a></td>
         <td id="eliminar"><a href="../procesos/borrarPersonas.php?id=<?php echo $key['id'] ?>"  class="btn btn-primary mt-4">Eliminar</a></td>
         </tr>

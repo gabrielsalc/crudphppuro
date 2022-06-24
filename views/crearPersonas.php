@@ -5,7 +5,7 @@
     <div class="col-md-12">
       <h2 class="mt-4">Crea una Persona</h2>
       <hr>
-      <form action="../procesos/insertarpersonas.php" method="post">
+      <form action="../procesos/insertarPersonas.php" method="post">
         <div class="form-group">
           <label for="nombre">Nombre</label>
           <input type="text" name="nombre" id="nombre" class="form-control">
