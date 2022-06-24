@@ -10,9 +10,8 @@ include "../templates/header.php";
         <td>Personas</td>
     </tr>
 <?php
-    $obj = new metodos();
-    $sql="SELECT id,nombre,personas FROM roles";
-    $datos = $obj->mostrarDatos($sql);
+    $obj = new roles();
+    $datos = $obj->mostrarDatos();
 
     foreach ($datos as $key){
     ?>
@@ -22,8 +21,8 @@ include "../templates/header.php";
             echo $key['personas'];
             }else{
                 echo "Aun no hay personas cubriendo este Rol";}?></td>
-        <td id="modificar"><a href="modificarRoles.php?id=<?php echo $key['id'] ?>"  class="btn btn-primary mt-4">Modificar</a></td>
-        <td id="eliminar"><a href="../controllers/borrarRoles.php?id=<?php echo $key['id'] ?>"  class="btn btn-primary mt-4">Eliminar</a></td>
+        <td id="modificar"><a href="modificarRoles.php?id=<?php echo $key['idroles'] ?>"  class="btn btn-primary mt-4">Modificar</a></td>
+        <td id="eliminar"><a href="../controllers/borrarRoles.php?id=<?php echo $key['idroles'] ?>"  class="btn btn-primary mt-4">Eliminar</a></td>
         </tr>
     <?php    
     }

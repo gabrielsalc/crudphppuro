@@ -2,16 +2,10 @@
     require_once "../models/conexionRoles.php";
     require_once "../models/rolesModels.php";
 
-
-    $nombre=$_POST['nombre'];
-    $personas=$_POST['personas'];
-
-    $datos=array(
-        $nombre,
-        $personas,
-    );
-    $obj = new metodos();
-    if($obj->insertarDatos($datos)==1){
+    $obj = new roles();
+    $obj->nombre=$_POST['nombre'];
+    
+    if($obj->insertarDatos()==1){
         header("location:../views/indexRoles.php");
     } else {
         echo "fallo al agregar";

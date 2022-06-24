@@ -13,9 +13,9 @@ include "../templates/header.php";
     </tr>
 <?php
     //llamo a personasController.php
-    $obj = new metodos();
-    $sql="SELECT id,nombre,apellido,email,roles FROM personas"; //creo el string para consultar en la base de datos
-    $datos = $obj->mostrarDatos($sql); //llamo a mi metodo, mando el string y guardo la respuesta en $datos
+    $obj = new personas();
+    //$sql="SELECT idpersonas,nombre,apellido,email FROM personas"; //creo el string para consultar en la base de datos
+    $datos = $obj->mostrarDatos(); //llamo a mi metodo, mando el string y guardo la respuesta en $datos
 
     foreach ($datos as $key){ //el buen foreach para ordenar en la tabla
     ?>
@@ -27,8 +27,8 @@ include "../templates/header.php";
             echo $key['roles'];
             }else{
                 echo "No posee un Rol aun";}?></td>
-        <td id="modificar"><a href="modificarPersonas.php?id=<?php echo $key['id'] //aqui mando la variable id?>"  class="btn btn-primary mt-4">Modificar</a></td>
-        <td id="eliminar"><a href="../controllers/borrarPersonas.php?id=<?php echo $key['id'] ?>"  class="btn btn-primary mt-4">Eliminar</a></td>
+        <td id="modificar"><a href="modificarPersonas.php?variable=<?php echo $key['idpersonas'] //aqui mando la variable id?>"  class="btn btn-primary mt-4">Modificar</a></td>
+        <td id="eliminar"><a href="../controllers/borrarPersonas.php?variable=<?php echo $key['idpersonas'] ?>"  class="btn btn-primary mt-4">Eliminar</a></td>
         </tr>
     <?php    
     }

@@ -3,7 +3,7 @@ require_once "../models/conexionRoles.php";
 $obj = new conectarRoles();
 $conexion = $obj->conexion();
 $id = $_GET['id'];
-$sql = "SELECT nombre,personas from roles where id='$id'";
+$sql = "SELECT nombre from roles where idroles='$id'";
 $result=mysqli_query($conexion, $sql);
 $values=mysqli_fetch_row($result);
 

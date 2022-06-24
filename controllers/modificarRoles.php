@@ -3,17 +3,12 @@
     require_once "../models/rolesModels.php";
 
     
-    $nombre=$_POST['nombre'];
-    $personas=$_POST['personas'];
-    $id=$_POST['id'];
+    $obj = new roles();
 
-    $datos=array(
-        $nombre,
-        $personas,
-        $id
-    );
-    $obj = new metodos();
-    if($obj->modificarDatos($datos)==1){
+    $obj->nombre=$_POST['nombre'];
+    $obj->idroles=$_POST['id'];
+
+    if($obj->modificarDatos()==1){
         header("location:../views/indexRoles.php");
     } else {
         echo "fallo al modificar";
