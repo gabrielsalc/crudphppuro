@@ -1,6 +1,6 @@
 <?php
-require_once "../models/conexionPersonas.php";
-$obj = new conectarpersonas(); //guardo los datos de conexion
+require_once "../models/conexionDB.php";
+$obj = new conexiondb(); //guardo los datos de conexion
 $conexion = $obj->conexion(); //pruebo la conexion y si es exitosa se guardan los datos en $conexion
 $id = $_GET['variable']; //recibo la variable desde el boton modificar
 $sql = "SELECT nombre,apellido,email,edad from personas where idpersonas='$id'"; //string de consulta

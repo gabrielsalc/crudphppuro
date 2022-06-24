@@ -11,16 +11,15 @@
         public $idpersonas;
 
         public function mostrarDatos(){
-            $c = new conectarpersonas(); //guardo en $c los datos de conexion
+            $c = new conexiondb(); //guardo en $c los datos de conexion
             $conexion = $c->conexion(); //si la conexion es exitosa, guardo en $conexion los datos
-            
             $sql = "SELECT idpersonas,nombre,apellido,email FROM personas";
             $result=mysqli_query($conexion,$sql); //realizo y guardo la consulta en result
             return mysqli_fetch_all($result, MYSQLI_ASSOC); //MYSQLI_ASSOC hace que el fetch all se comporte como fetch row
         }
         public function insertarDatos(){
             
-            $c = new conectarpersonas();
+            $c = new conexiondb();
             $conexion = $c->conexion();
 
             $sql = $conexion->prepare("INSERT INTO personas (nombre, apellido, email, edad) VALUES (?, ?, ?, ?)");
@@ -33,7 +32,7 @@
         }
         public function modificarDatos(){
 
-            $c = new conectarpersonas();
+            $c = new conexiondb();
             $conexion = $c->conexion();
 
             $sql= $conexion->prepare("UPDATE personas set nombre=?, apellido=? ,email=?, edad=? where idpersonas=?");
@@ -43,13 +42,12 @@
         public function borrarDatos(){
 
 
-            $c = new conectarpersonas();
+            $c = new conexiondb();
             $conexion = $c->conexion();
 
             $sql= $conexion->prepare("DELETE from personas where idpersonas=?");
-            $sql->bind_param("i",  $this->idpersonas);
-            $result =  mysqli_query($conexion, $sql);
-            return $result;
+            $sql->bind_param("i", $this->idpersonas);
+            return $sql->execute();
         }
     }
 ?>

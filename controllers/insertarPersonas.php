@@ -1,5 +1,5 @@
 <?php
-    require_once "../models/conexionPersonas.php";
+    require_once "../models/conexionDB.php";
     require_once "../models/personasModels.php";
 
     $obj = new personas();

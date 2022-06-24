@@ -1,8 +1,8 @@
 <?php
 
-    class roles{
+    class personasroles{
 
-        public $nombre;
+        public $idpersonas;
         public $idroles;
 
         public function mostrarDatos(){
@@ -16,8 +16,8 @@
             $c = new conexiondb();
             $conexion = $c->conexion();
 
-            $sql = $conexion->prepare("INSERT INTO roles (nombre) VALUES (?)");
-            $sql->bind_param("s", $this->nombre);
+            $sql = $conexion->prepare("INSERT INTO rolespersonas (idpersonas, idroles) VALUES (?, ?)");
+            $sql->bind_param("ii", $this->idpersonas, $this->idroles);
             return $sql->execute();
         }
         public function modificarDatos(){

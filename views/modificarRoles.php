@@ -1,6 +1,6 @@
 <?php
-require_once "../models/conexionRoles.php";
-$obj = new conectarRoles();
+require_once "../models/conexionDB.php";
+$obj = new conexiondb();
 $conexion = $obj->conexion();
 $id = $_GET['id'];
 $sql = "SELECT nombre from roles where idroles='$id'";

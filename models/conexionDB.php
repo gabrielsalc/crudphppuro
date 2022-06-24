@@ -1,6 +1,6 @@
 <?php
 
-    class conectarpersonas{
+    class conexiondb{
         private $servidor="localhost"; //datos de conexion, a mi me funciona asi, depende de la pc si hay que cambiar algo
         private $usuario="root";
         private $pass="";
