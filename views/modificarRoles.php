@@ -7,7 +7,7 @@ $sql = "SELECT nombre,personas from roles where id='$id'";
 $result=mysqli_query($conexion, $sql);
 $values=mysqli_fetch_row($result);
 
-require_once "../controllers/rolesController.php";
+require_once "../models/rolesModels.php";
 ?>
 <?php include "../templates/header.php"; ?>
 
@@ -16,7 +16,7 @@ require_once "../controllers/rolesController.php";
     <div class="col-md-12">
       <h2 class="mt-4">Modificar <?php echo $values[0] ?></h2>
       <hr>
-      <form action="../procesos/modificarRoles.php" method="post">
+      <form action="../controllers/modificarRoles.php" method="post">
         <input type="text" hidden="" value="<?php echo $id ?>" name="id">
         <div class="form-group">
           <label for="nombre">Nombre</label>

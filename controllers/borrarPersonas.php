@@ -2,7 +2,7 @@
     $id=$_GET['id'];
 
     require_once "../models/conexionPersonas.php";
-    require_once "../controllers/personasController.php";
+    require_once "../models/personasModels.php";
 
     $obj = new metodos();
     if($obj->borrarDatos($id)==1){

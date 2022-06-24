@@ -1,6 +1,6 @@
 <?php
-require_once "../models/conexionPersonas.php";
-require_once "../controllers/personasController.php";
+    require_once "../models/conexionPersonas.php";
+    require_once "../models/personasModels.php";
 include "../templates/header.php"; 
 ?>
 
@@ -28,7 +28,7 @@ include "../templates/header.php";
             }else{
                 echo "No posee un Rol aun";}?></td>
         <td id="modificar"><a href="modificarPersonas.php?id=<?php echo $key['id'] //aqui mando la variable id?>"  class="btn btn-primary mt-4">Modificar</a></td>
-        <td id="eliminar"><a href="../procesos/borrarPersonas.php?id=<?php echo $key['id'] ?>"  class="btn btn-primary mt-4">Eliminar</a></td>
+        <td id="eliminar"><a href="../controllers/borrarPersonas.php?id=<?php echo $key['id'] ?>"  class="btn btn-primary mt-4">Eliminar</a></td>
         </tr>
     <?php    
     }

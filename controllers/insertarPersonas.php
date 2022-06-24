@@ -1,6 +1,6 @@
 <?php
     require_once "../models/conexionPersonas.php";
-    require_once "../controllers/personasController.php";
+    require_once "../models/personasModels.php";
 
 
     $nombre=$_POST['nombre'];

@@ -1,6 +1,6 @@
 <?php
     require_once "../models/conexionRoles.php";
-    require_once "../controllers/rolesController.php";
+    require_once "../models/rolesModels.php";
 
 
     $nombre=$_POST['nombre'];

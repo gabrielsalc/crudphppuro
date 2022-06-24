@@ -1,6 +1,6 @@
 <?php
-require_once "../models/conexionRoles.php";
-require_once "../controllers/rolesController.php";
+    require_once "../models/conexionRoles.php";
+    require_once "../models/rolesModels.php";
 include "../templates/header.php"; 
 ?>
 
@@ -23,7 +23,7 @@ include "../templates/header.php";
             }else{
                 echo "Aun no hay personas cubriendo este Rol";}?></td>
         <td id="modificar"><a href="modificarRoles.php?id=<?php echo $key['id'] ?>"  class="btn btn-primary mt-4">Modificar</a></td>
-        <td id="eliminar"><a href="../procesos/borrarRoles.php?id=<?php echo $key['id'] ?>"  class="btn btn-primary mt-4">Eliminar</a></td>
+        <td id="eliminar"><a href="../controllers/borrarRoles.php?id=<?php echo $key['id'] ?>"  class="btn btn-primary mt-4">Eliminar</a></td>
         </tr>
     <?php    
     }
