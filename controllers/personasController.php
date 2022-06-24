@@ -5,8 +5,8 @@
             $c = new conectarpersonas(); //guardo en $c los datos de conexion
             $conexion = $c->conexion(); //si la conexion es exitosa, guardo en $conexion los datos
 
-            $result=mysqli_query($conexion,$sql);
-            return mysqli_fetch_all($result, MYSQLI_ASSOC);
+            $result=mysqli_query($conexion,$sql); //realizo y guardo la consulta en result
+            return mysqli_fetch_all($result, MYSQLI_ASSOC); //MYSQLI_ASSOC hace que el fetch all se comporte como fetch row
         }
         public function insertarDatos($datos){
             $c = new conectarpersonas();
