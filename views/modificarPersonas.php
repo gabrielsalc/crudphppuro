@@ -36,7 +36,7 @@ require_once "../controllers/personasController.php";
         </div>
         <div class="form-group">
           <input type="submit" name="submit" class="btn btn-primary" value="Modificar">
-          <a class="btn btn-primary" href="../index.php">Regresar al inicio</a>
+          <a class="btn btn-primary" href="indexPersonas.php">Regresar Atras</a>
         </div>
       </form>
     </div>
