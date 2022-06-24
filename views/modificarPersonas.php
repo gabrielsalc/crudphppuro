@@ -1,5 +1,5 @@
 <?php
-require_once "../models/conexion.php";
+require_once "../models/conexionPersonas.php";
 $obj = new conectarpersonas();
 $conexion = $obj->conexion();
 $id = $_GET['id'];

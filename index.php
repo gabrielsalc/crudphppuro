@@ -3,11 +3,11 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <a href="views/personas.php"  class="btn btn-primary mt-4">Personas</a>
+      <a href="views/indexPersonas.php"  class="btn btn-primary mt-4">Personas</a>
       <hr>
     </div>
     <div class="col-md-12">
-      <a href="views/roles.php"  class="btn btn-primary mt-4">Roles</a>
+      <a href="views/indexRoles.php"  class="btn btn-primary mt-4">Roles</a>
       <hr>
     </div>
   </div>

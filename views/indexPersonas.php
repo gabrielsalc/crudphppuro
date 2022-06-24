@@ -1,5 +1,5 @@
 <?php
-require_once "../models/conexion.php";
+require_once "../models/conexionPersonas.php";
 require_once "../controllers/personasController.php";
 include "../templates/header.php"; 
 ?>
@@ -26,11 +26,12 @@ include "../templates/header.php";
             echo $key['roles'];
             }else{
                 echo "No tiene Rol";}?></td>
-        <td><a href="modificar.php?id=<?php echo $key['id'] ?>"  class="btn btn-primary mt-4">Modificar</a></td>
+        <td id="modificar"><a href="modificarPersonas.php?id=<?php echo $key['id'] ?>"  class="btn btn-primary mt-4">Modificar</a></td>
+        <td id="eliminar"><a href="../procesos/borrarPersonas.php?id=<?php echo $key['id'] ?>"  class="btn btn-primary mt-4">Eliminar</a></td>
         </tr>
     <?php    
     }
     ?>
-    <a href="crearpersona.php"  class="btn btn-primary mt-4">Crear</a>
+    <a href="crearPersonas.php"  class="btn btn-primary mt-4">Crear</a>
     <a href="../index.php"  class="btn btn-primary mt-4">Volver al Inicio</a>
 <?php include "../templates/footer.php"; ?>

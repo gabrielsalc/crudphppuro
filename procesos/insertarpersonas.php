@@ -1,5 +1,5 @@
 <?php
-    require_once "../models/conexion.php";
+    require_once "../models/conexionPersonas.php";
     require_once "../controllers/personasController.php";
 
 
@@ -16,7 +16,7 @@
     );
     $obj = new metodos();
     if($obj->insertarDatos($datos)==1){
-        header("location:../views/personas.php");
+        header("location:../views/indexPersonas.php");
     } else {
         echo "fallo al agregar";
     }

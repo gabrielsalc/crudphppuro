@@ -19,8 +19,15 @@
         public function modificarDatos($datos){
             $c = new conectarpersonas();
             $conexion = $c->conexion();
-
+            
             $sql= "UPDATE personas set nombre='$datos[0]',apellido='$datos[1]',email='$datos[2]',edad='$datos[3]' where id='$datos[4]'";
+            $result =  mysqli_query($conexion, $sql);
+            return $result;
+        }
+        public function borrarDatos($id){
+            $c = new conectarpersonas();
+            $conexion = $c->conexion();
+            $sql="DELETE from personas where id='$id'";
             $result =  mysqli_query($conexion, $sql);
             return $result;
         }
