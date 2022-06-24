@@ -1,11 +1,11 @@
 <?php
 require_once "../models/conexionPersonas.php";
-$obj = new conectarpersonas();
-$conexion = $obj->conexion();
-$id = $_GET['id'];
-$sql = "SELECT nombre,apellido,email,edad from personas where id='$id'";
-$result=mysqli_query($conexion, $sql);
-$values=mysqli_fetch_row($result);
+$obj = new conectarpersonas(); //guardo los datos de conexion
+$conexion = $obj->conexion(); //pruebo la conexion y si es exitosa se guardan los datos en $conexion
+$id = $_GET['id']; //recibo la variable desde el boton modificar
+$sql = "SELECT nombre,apellido,email,edad from personas where id='$id'"; //string de consulta
+$result=mysqli_query($conexion, $sql);  //almaceno los datos
+$values=mysqli_fetch_row($result);  //ordeno los datos
 
 require_once "../controllers/personasController.php";
 ?>

@@ -2,8 +2,8 @@
 
     class metodos{
         public function mostrarDatos($sql){
-            $c = new conectarpersonas();
-            $conexion = $c->conexion();
+            $c = new conectarpersonas(); //guardo en $c los datos de conexion
+            $conexion = $c->conexion(); //si la conexion es exitosa, guardo en $conexion los datos
 
             $result=mysqli_query($conexion,$sql);
             return mysqli_fetch_all($result, MYSQLI_ASSOC);

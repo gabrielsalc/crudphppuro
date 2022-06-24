@@ -12,21 +12,22 @@ include "../templates/header.php";
         <td>Rol</td>
     </tr>
 <?php
+    //llamo a personasController.php
     $obj = new metodos();
-    $sql="SELECT id,nombre,apellido,email,roles FROM personas";
-    $datos = $obj->mostrarDatos($sql);
+    $sql="SELECT id,nombre,apellido,email,roles FROM personas"; //creo el string para consultar en la base de datos
+    $datos = $obj->mostrarDatos($sql); //llamo a mi metodo, mando el string y guardo la respuesta en $datos
 
-    foreach ($datos as $key){
+    foreach ($datos as $key){ //el buen foreach para ordenar en la tabla
     ?>
         <tr>
         <td><?php echo $key['nombre']?></td>
         <td><?php echo $key['apellido']?></td>
         <td><?php echo $key['email']?></td>
-        <td><?php if(isset($key['roles'])){
+        <td><?php if(isset($key['roles'])){ //me fijo si es rol es nulo para asi escribir otra cosa si es pertinente
             echo $key['roles'];
             }else{
                 echo "No posee un Rol aun";}?></td>
-        <td id="modificar"><a href="modificarPersonas.php?id=<?php echo $key['id'] ?>"  class="btn btn-primary mt-4">Modificar</a></td>
+        <td id="modificar"><a href="modificarPersonas.php?id=<?php echo $key['id'] //aqui mando la variable id?>"  class="btn btn-primary mt-4">Modificar</a></td>
         <td id="eliminar"><a href="../procesos/borrarPersonas.php?id=<?php echo $key['id'] ?>"  class="btn btn-primary mt-4">Eliminar</a></td>
         </tr>
     <?php    
