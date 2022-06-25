@@ -1,0 +1,30 @@
+#tdmodificar{
+    border-color: black;
+}
+#amodificar{
+    background-color: green;
+    border-color: green;
+}
+#aeliminar{
+    background-color: red;
+    border-color: red;
+}
+#aagregar{
+    background-color: gold;
+    border-color: gold;
+    color: black;
+}
+table{
+    margin-top: 50px;
+    margin-left: 50px
+}
+#botoncrear{
+    margin-right: 50px;
+    margin-left: 100px;
+}
+#botoninicio{
+
+}
+.popover-body{
+    background-color: rgb(255, 197, 197) !important;
+}

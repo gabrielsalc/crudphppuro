@@ -31,7 +31,7 @@ require_once "../models/personasModels.php";
             </select>
             <div class="form-group">
                 <input type="submit" name="submit" class="btn btn-primary" value="Agregar">
-                <a class="btn btn-primary" href="indexPersonas.php">Regresar Atras</a>
+                <a class="btn btn-primary" id="aeliminar" href="indexPersonas.php">Regresar Atras</a>
             </div>
         </form>
     </div>

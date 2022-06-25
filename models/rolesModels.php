@@ -28,10 +28,18 @@
         public function insertarDatos(){
             $c = new conexiondb();
             $conexion = $c->conexion();
-
+            
+            $control = $conexion->prepare("SELECT nombre from roles where nombre=?");
+            $control->bind_param("s", $this->nombre);
+            $control->execute();
+            $resultSet = $control->get_result();
+            $data = $resultSet->fetch_all(MYSQLI_ASSOC);
+            if(count($data)>0){
+                return 0;
+            } else {
             $sql = $conexion->prepare("INSERT INTO roles (nombre) VALUES (?)");
             $sql->bind_param("s", $this->nombre);
-            return $sql->execute();
+            return $sql->execute();}
         }
         
         public function modificarDatos(){
@@ -47,9 +55,17 @@
             $c = new conexiondb();
             $conexion = $c->conexion();
 
+            $control = $conexion->prepare("SELECT idroles from rolespersonas where idroles = ? ");
+            $control->bind_param("i", $this->idroles);
+            $control->execute();
+            $resultSet = $control->get_result();
+            $data = $resultSet->fetch_all(MYSQLI_ASSOC);
+            if(count($data)>0){
+                return 0;
+            } else {
             $sql= $conexion->prepare("DELETE from roles where idroles=?");
             $sql->bind_param("i", $this->idroles);
-            return $sql->execute();
+            return $sql->execute();}
         }
 
         public function damePersonas(){

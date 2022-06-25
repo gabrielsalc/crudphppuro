@@ -39,13 +39,18 @@
             $c = new conexiondb();
             $conexion = $c->conexion();
 
-            $sql = $conexion->prepare("INSERT INTO personas (nombre, apellido, email, edad) VALUES (?, ?, ?, ?)");
-            $sql->bind_param("ssss", $this->nombre, $this->apellido, $this->email, $this->edad);
-            //$sql = "INSERT into personas (nombre,apellido,email,edad) values ('$this->nombre', '$this->apellido','$this->email','$this->edad')";
-            //$result =  mysqli_query($conexion, $sql);
-            //return $result;
-            return $sql->execute();
-
+            $control = $conexion->prepare("SELECT email from personas where email=?");
+            $control->bind_param("s", $this -> email);
+            $control->execute();
+            $resultSet = $control->get_result();
+            $data = $resultSet->fetch_all(MYSQLI_ASSOC);
+            if(count($data)>0){
+                return 0;
+            } else {
+                $sql = $conexion->prepare("INSERT INTO personas (nombre, apellido, email, edad) VALUES (?, ?, ?, ?)");
+                $sql->bind_param("ssss", $this->nombre, $this->apellido, $this->email, $this->edad);
+                return $sql->execute();
+            }
         }
 
         public function modificarDatos(){

@@ -37,13 +37,13 @@
                     <br>
                 <?php
                 }?></td>
-        <td id="modificar"><a id="amodificar" href="modificarPersonas.php?variable=<?php echo $key['idpersonas'] //aqui mando la variable id?>"  class="btn btn-primary mt-4">Modificar</a></td>
-        <td id="eliminar"><a id="aeliminar" href="../controllers/borrarPersonas.php?variable=<?php echo $key['idpersonas'] ?>"  class="btn btn-primary mt-4">Eliminar</a></td>
-        <td id="agregar"><a id="aagregar" href="agregarRol.php?variable=<?php echo $key['idpersonas'] ?>"  class="btn btn-primary mt-4">Añadir Rol</a></td>
+        <td id="tdmodificar"><a id="amodificar" href="modificarPersonas.php?variable=<?php echo $key['idpersonas'] //aqui mando la variable id?>" id="modificarbtn" class="btn btn-primary mt-4">Modificar</a></td>
+        <td id="tdeliminar"><a id="aeliminar" href="../controllers/borrarPersonas.php?variable=<?php echo $key['idpersonas'] ?>"  class="btn btn-primary mt-4">Eliminar</a></td>
+        <td id="tdagregar"><a id="aagregar" href="agregarRol.php?variable=<?php echo $key['idpersonas'] ?>"  class="btn btn-primary mt-4">Añadir Rol</a></td>
         </tr>
     <?php    
     }
     ?>
-    <a href="crearPersonas.php"  class="btn btn-primary mt-4">Crear</a>
-    <a href="../index.php"  class="btn btn-primary mt-4">Volver al Inicio</a>
+    <a href="crearPersonas.php" id="botoncrear" class="btn btn-primary mt-4">Crear nueva Persona</a>
+    <a href="../index.php" id="botoninicio"  class="btn btn-primary mt-4">Volver al Inicio</a>
 <?php include "../templates/footer.php"; ?>
