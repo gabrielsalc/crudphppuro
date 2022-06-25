@@ -10,7 +10,7 @@
 
     if(($obj->idroles != "") && ($obj->idpersonas != "")){
         if($obj->insertarDatosPersona()==1){
-            header("location:../views/indexroles.php");
+            header("location:../views/indexRoles.php");
         } else {
             $_SESSION["Login.Error"] = "Este usuario ya tiene asignado este rol";
             $previousPage = $_SERVER['HTTP_REFERER'];
