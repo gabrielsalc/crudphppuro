@@ -5,11 +5,11 @@
 
     $obj = new personasroles();
 
-    $obj->idroles=$_POST['roles'];
-    $obj->idpersonas=$_POST['idpersonas'];
+    $obj->idpersonas=$_POST['personas'];
+    $obj->idroles=$_POST['idroles'];
 
     if($obj->insertarDatos()==1){
-        header("location:../views/indexPersonas.php");
+        header("location:../views/indexRoles.php");
     } else {
         echo "fallo al modificar";
     }

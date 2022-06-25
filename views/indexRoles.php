@@ -17,10 +17,17 @@ include "../templates/header.php";
     ?>
         <tr>
         <td><?php echo $key['nombre']?></td>
-        <td><?php if(isset($key['personas'])){
-            echo $key['personas'];
-            }else{
-                echo "Aun no hay personas cubriendo este Rol";}?></td>
+        <td><?php
+                $hola = new roles();
+                $hola->idroles = $key['idroles'];
+                $roles = $hola->damePersonas();
+                foreach($roles as $key2){
+                    echo $key2['nombre'];?> <?php echo $key2['apellido'];?>
+                    <a id="aeliminar" href="../controllers/borrarPersonaRoles.php?variable1=<?php echo $key2['idpersonas'] ?>&variable2=<?php echo $key['idroles']?>"  class="btn btn-primary mt-4">Eliminar</a>
+                    <br>
+                <?php
+                }?></td>
+        <td id="agregar"><a href="agregarPersona.php?id=<?php echo $key['idroles'] ?>"  class="btn btn-primary mt-4">Agregar Persona</a></td>
         <td id="modificar"><a href="modificarRoles.php?id=<?php echo $key['idroles'] ?>"  class="btn btn-primary mt-4">Modificar</a></td>
         <td id="eliminar"><a href="../controllers/borrarRoles.php?id=<?php echo $key['idroles'] ?>"  class="btn btn-primary mt-4">Eliminar</a></td>
         </tr>

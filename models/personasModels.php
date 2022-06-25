@@ -11,19 +11,27 @@
         public $idpersonas;
 
         public function mostrarDatos(){
+
             $c = new conexiondb(); //guardo en $c los datos de conexion
             $conexion = $c->conexion(); //si la conexion es exitosa, guardo en $conexion los datos
-            $sql = "SELECT idpersonas,nombre,apellido,email FROM personas";
-            $result=mysqli_query($conexion,$sql); //realizo y guardo la consulta en result
-            return mysqli_fetch_all($result, MYSQLI_ASSOC); //MYSQLI_ASSOC hace que el fetch all se comporte como fetch row
+    
+            $sql = $conexion->prepare("SELECT idpersonas,nombre,apellido,email FROM personas"); 
+            $sql ->execute();
+            $result = $sql->get_result();
+            return $result;
         }
 
-        public function seleccionarDatos($dato){
+        public function seleccionarDatos(){
+
             $c = new conexiondb();
             $conexion = $c->conexion();
-            $sql = "SELECT nombre,apellido,email,edad FROM personas where idpersonas=$dato";
-            $result=mysqli_query($conexion,$sql); 
-            return mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+            $sql = $conexion->prepare("SELECT nombre,apellido,email,edad,idpersonas FROM personas where idpersonas=?");
+            $sql->bind_param("i", $this->idpersonas);
+            $sql->execute();
+            $resultSet = $sql->get_result();
+            $data = $resultSet->fetch_all(MYSQLI_ASSOC);
+            return $data;
         }
 
         public function insertarDatos(){

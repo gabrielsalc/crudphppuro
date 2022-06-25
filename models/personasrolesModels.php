@@ -42,8 +42,8 @@
             $c = new conexiondb();
             $conexion = $c->conexion();
 
-            $sql= $conexion->prepare("DELETE from rolepersonas where idroles=?");
-            $sql->bind_param("i", $this->idroles);
+            $sql= $conexion->prepare("DELETE from rolespersonas where idpersonas=? and idroles=?");
+            $sql->bind_param("ii", $this->idpersonas, $this->idroles);
             return $sql->execute();
         }
     }

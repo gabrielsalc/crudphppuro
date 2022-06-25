@@ -1,11 +1,11 @@
 <?php
 require_once "../models/conexionDB.php";
-$obj = new conexiondb();
-$conexion = $obj->conexion();
+require_once "../models/rolesmodels.php";
+
 $id = $_GET['id'];
-$sql = "SELECT nombre from roles where idroles='$id'";
-$result=mysqli_query($conexion, $sql);
-$values=mysqli_fetch_row($result);
+$obj = new roles();
+$obj->idroles=$_GET['id'];
+$values = $obj->seleccionarDatos();
 
 require_once "../models/rolesModels.php";
 ?>
@@ -14,13 +14,13 @@ require_once "../models/rolesModels.php";
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <h2 class="mt-4">Modificar <?php echo $values[0] ?></h2>
+      <h2 class="mt-4">Modificar <?php echo $values[0]['nombre'] ?></h2>
       <hr>
       <form action="../controllers/modificarRoles.php" method="post">
         <input type="text" hidden="" value="<?php echo $id ?>" name="id">
         <div class="form-group">
           <label for="nombre">Nombre</label>
-          <input type="text" name="nombre" id="nombre" class="form-control" value="<?php echo $values[0] ?>">
+          <input type="text" name="nombre" id="nombre" class="form-control" value="<?php echo $values[0]['nombre'] ?>">
         </div>
         <div class="form-group">
           <input type="submit" name="submit" class="btn btn-primary" value="Modificar">

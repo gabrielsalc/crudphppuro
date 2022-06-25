@@ -36,18 +36,6 @@
                     echo $key2['nombre'];?>
                     <br>
                 <?php
-
-                /*$obj2 = new personasroles();
-                $datos2 = $obj2->seleccionarDatos($idpersonas);
-                foreach($datos2 as $key2){
-                    $idroles = $key2['idroles'];
-                    $obj3 = new roles();
-                    $datos3 = $obj3->seleccionarDatos($idroles);
-                    foreach($datos3 as $key3){
-                        if (isset($key3['nombre'])){
-                            echo $key3['nombre'];
-                        } else { echo "Aun no tiene Roles Asignados";}?><br><?php
-                    }*/
                 }?></td>
         <td id="modificar"><a id="amodificar" href="modificarPersonas.php?variable=<?php echo $key['idpersonas'] //aqui mando la variable id?>"  class="btn btn-primary mt-4">Modificar</a></td>
         <td id="eliminar"><a id="aeliminar" href="../controllers/borrarPersonas.php?variable=<?php echo $key['idpersonas'] ?>"  class="btn btn-primary mt-4">Eliminar</a></td>

@@ -1,4 +1,5 @@
-<?php include "templates/header.php"; ?>
+<?php include "templates/header.php";
+echo "<script>window.alert('Usuario o mail ya en uso')</script>";?>
 
 <div class="container">
   <div class="row">
