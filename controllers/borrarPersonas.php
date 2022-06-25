@@ -7,7 +7,6 @@
     $obj = new personas();
 
     $obj->idpersonas=$_GET['variable'];
-
     if($obj->borrarDatos()==1){
         header("location:../views/indexPersonas.php");
     } else {

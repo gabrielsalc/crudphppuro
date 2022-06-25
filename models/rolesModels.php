@@ -12,6 +12,16 @@
             $result=mysqli_query($conexion,$sql);
             return mysqli_fetch_all($result, MYSQLI_ASSOC);
         }
+
+        public function seleccionarDatos($dato){
+            $c = new conexiondb();
+            $conexion = $c->conexion();
+
+            $sql="SELECT nombre FROM roles where idroles=$dato";
+            $result=mysqli_query($conexion,$sql);
+            return mysqli_fetch_all($result, MYSQLI_ASSOC);
+        }
+
         public function insertarDatos(){
             $c = new conexiondb();
             $conexion = $c->conexion();
@@ -20,6 +30,7 @@
             $sql->bind_param("s", $this->nombre);
             return $sql->execute();
         }
+        
         public function modificarDatos(){
             $c = new conexiondb();
             $conexion = $c->conexion();

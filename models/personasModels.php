@@ -17,6 +17,15 @@
             $result=mysqli_query($conexion,$sql); //realizo y guardo la consulta en result
             return mysqli_fetch_all($result, MYSQLI_ASSOC); //MYSQLI_ASSOC hace que el fetch all se comporte como fetch row
         }
+
+        public function seleccionarDatos($dato){
+            $c = new conexiondb();
+            $conexion = $c->conexion();
+            $sql = "SELECT nombre,apellido,email,edad FROM personas where idpersonas=$dato";
+            $result=mysqli_query($conexion,$sql); 
+            return mysqli_fetch_all($result, MYSQLI_ASSOC);
+        }
+
         public function insertarDatos(){
             
             $c = new conexiondb();
@@ -30,6 +39,7 @@
             return $sql->execute();
 
         }
+
         public function modificarDatos(){
 
             $c = new conexiondb();
@@ -39,15 +49,28 @@
             $sql->bind_param("ssssi", $this->nombre, $this->apellido, $this->email, $this->edad, $this->idpersonas);
             return $sql->execute();
         }
+
         public function borrarDatos(){
-
-
             $c = new conexiondb();
             $conexion = $c->conexion();
-
+            $sql = $conexion->prepare("DELETE from rolespersonas where idpersonas=?");
+            $sql->bind_param("i", $this->idpersonas);
+            $sql->execute();
             $sql= $conexion->prepare("DELETE from personas where idpersonas=?");
             $sql->bind_param("i", $this->idpersonas);
             return $sql->execute();
+        }
+
+        public function dameRoles(){
+            $c = new conexiondb();
+            $conexion = $c->conexion();
+
+            $sql = $conexion->prepare("SELECT nombre from rolespersonas INNER JOIN roles using (idroles) WHERE idpersonas = ?");
+            $sql->bind_param("i", $this->idpersonas);
+            $sql->execute();
+            $result = $sql->get_result();
+            return $result;
+
         }
     }
 ?>

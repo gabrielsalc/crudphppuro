@@ -8,7 +8,16 @@
         public function mostrarDatos(){
             $c = new conexiondb();
             $conexion = $c->conexion();
-            $sql="SELECT idroles,nombre FROM roles";
+
+            $sql="SELECT idroles,idpersonas FROM rolespersonas";
+            $result=mysqli_query($conexion,$sql);
+            return mysqli_fetch_all($result, MYSQLI_ASSOC);
+        }
+        public function seleccionarDatos($dato){
+            $c = new conexiondb();
+            $conexion = $c->conexion();
+
+            $sql="SELECT idroles FROM rolespersonas where idpersonas=$dato";
             $result=mysqli_query($conexion,$sql);
             return mysqli_fetch_all($result, MYSQLI_ASSOC);
         }
@@ -33,7 +42,7 @@
             $c = new conexiondb();
             $conexion = $c->conexion();
 
-            $sql= $conexion->prepare("DELETE from roles where idroles=?");
+            $sql= $conexion->prepare("DELETE from rolepersonas where idroles=?");
             $sql->bind_param("i", $this->idroles);
             return $sql->execute();
         }
