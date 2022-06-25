@@ -28,3 +28,9 @@ table{
 .popover-body{
     background-color: rgb(255, 197, 197) !important;
 }
+#beliminar{
+    height: 30px;
+    background-color: red;
+    border-color: red;
+    text-align: start;
+}

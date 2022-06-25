@@ -1,7 +1,10 @@
 <?php
 require_once "../models/conexionDB.php";
 require_once "../models/personasModels.php";
+require_once "../models/personasrolesModels.php";
 require_once "../models/rolesModels.php";
+session_start();
+
 $id = $_GET['variable'];
 $obj = new personas;
 $obj->idpersonas=$_GET['variable'];
@@ -10,7 +13,6 @@ $datos1 = $obj -> seleccionarDatos();
 $obj2 = new roles();
 $datos = $obj2->mostrarDatos();
 
-require_once "../models/personasModels.php";
 ?>
 <?php include "../templates/header.php"; ?>
 
@@ -19,6 +21,11 @@ require_once "../models/personasModels.php";
     <div class="col-md-12">
         <h2 class="mt-4">Agregar Rol a <?php echo $datos1[0]['nombre'] ?> <?php echo $datos1[0]['apellido'] ?></h2>
         <hr>
+        <?php if(isset($_SESSION['Login.Error']))  {
+        $cartel = $_SESSION['Login.Error'];
+        echo "<script>window.alert('$cartel')</script>";
+        unset($_SESSION['Login.Error']); }
+      ?>
         <form action="../controllers/agregarRol.php" method="post">
             <input type="text" hidden="" value="<?php echo $id ?>" name="idpersonas">
             <select name="roles" id="roles">
