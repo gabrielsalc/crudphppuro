@@ -1,6 +1,6 @@
 <?php
 require_once "../models/conexionDB.php";
-require_once "../models/rolesmodels.php";
+require_once "../models/rolesModels.php";
 
 $id = $_GET['id'];
 $obj = new roles();
